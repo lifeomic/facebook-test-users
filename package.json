@@ -1,0 +1,45 @@
+{
+  "name": "@lifeomic/facebook-test-users",
+  "version": "1.0.0",
+  "description": "Utilities for working with Facebook test users",
+  "main": "src/testUsers",
+  "author": "LifeOmic <development@lifeomic.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lifeomic/facebook-test-users.git"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "yarn lint",
+    "test": "nyc ava -v"
+  },
+  "engines": {
+    "node": ">= 8"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "lodash": "^4.17.10"
+  },
+  "devDependencies": {
+    "@lifeomic/eslint-plugin-node": "^1.1.1",
+    "ava": "^0.25.0",
+    "eslint": "^4.19.1",
+    "nock": "^9.2.6",
+    "nyc": "^11.8.0",
+    "uuid": "^3.2.1"
+  },
+  "eslintConfig": {
+    "extends": "plugin:@lifeomic/node/recommended"
+  },
+  "nyc": {
+    "check-coverage": true,
+    "branches": 100,
+    "functions": 100,
+    "lines": 100,
+    "statements": 100
+  }
+}
