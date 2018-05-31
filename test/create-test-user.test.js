@@ -13,10 +13,10 @@ test.beforeEach(async (test) => {
 
 test.serial('creating a new test user with the default options does not customize the user', async (test) => {
   const { client, facebook } = test.context;
-  const response = await client.createTestUser();
+  const user = await client.createTestUser();
 
   test.is(facebook.users.length, 1);
-  test.deepEqual(response.data, facebook.users[0].publishView());
+  test.deepEqual(user, facebook.users[0].publishView());
   test.deepEqual(facebook.users[0].options(), {});
 });
 
@@ -31,9 +31,9 @@ test.serial('a user can be configured on creation', async (test) => {
     uid: uuid()
   };
 
-  const response = await client.createTestUser(options);
+  const user = await client.createTestUser(options);
 
   test.is(facebook.users.length, 1);
-  test.deepEqual(response.data, facebook.users[0].publishView());
+  test.deepEqual(user, facebook.users[0].publishView());
   test.deepEqual(facebook.users[0].options(), options);
 });

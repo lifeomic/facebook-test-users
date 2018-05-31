@@ -36,11 +36,12 @@ class Application {
   }
 
   async createTestUser (options = {}) {
-    return this._client.post(
+    const response = await this._client.post(
       this._testUsersUrl,
       options,
       { headers: { 'Content-Type': 'application/json' } }
     );
+    return response.data;
   }
 
   async deleteTestUser ({ id }) {

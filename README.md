@@ -22,14 +22,14 @@ const testUsers = require('@lifeomic/facebook-test-users');
 const client = await testUsers.createClient({ appId, appSecret });
 ```
 
-### `testUsers.createClient({ appId, appSecret })`
+### `async testUsers.createClient({ appId, appSecret })`
 
 Create a new client instance.
 
  - **appId** — the Facebook application's client ID
  - **appSecret** - the Facebook application's client secret
 
-### `client.createTestUser(options)`
+### `async client.createTestUser(options)`
 
 Create a new test user. Returns [a description of the user][publish-response].
 
@@ -39,7 +39,7 @@ Create a new test user. Returns [a description of the user][publish-response].
 References:
  - [Create a Test User][publish-user]
 
-### `client.deleteTestUser({ id })`
+### `async client.deleteTestUser({ id })`
 
 Delete a test user.
 
@@ -48,7 +48,7 @@ Delete a test user.
 References:
   - [Delete a Test User][delete-test-user]
 
-### `client.findTestUser(fields)`
+### `async client.findTestUser(fields)`
 
 Find a test user that matches the specified fields. Returns a
 [description of the matching user][test-user-fields] augmented with the matched
@@ -57,7 +57,7 @@ fields or `null` if no users matched the specified fields.
  - **fields** — An object describing the fields that the test user must match.
    Only fields from the [test user node][test-user-node] can be matched.
 
-### `client.getTestUser({ id, includeFields })`
+### `async client.getTestUser({ id, includeFields })`
 
 Fetches the [test user node][test-user-node] for the user with the specified ID.
 Returns the [test user node][test-user-node] with the specified fields.
@@ -69,7 +69,7 @@ Returns the [test user node][test-user-node] with the specified fields.
 References:
  - [Lookup a Test User][test-user-node]
 
-## `client.listTestUsers({ includeFields })`
+## `async client.listTestUsers({ includeFields })`
 
 Get a list of all test users associated with the app. Returns a list of
 [user descriptions][test-user-fields] augmented with any additional requested
