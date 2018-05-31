@@ -3,6 +3,9 @@ facebook-test-users
 
 > Utilities for working with Facebook test users
 
+[![Build Status](https://travis-ci.org/lifeomic/facebook-test-users.svg?branch=master)](https://travis-ci.org/lifeomic/facebook-test-users)
+[![Coverage Status](https://coveralls.io/repos/github/lifeomic/facebook-test-users/badge.svg?branch=master)](https://coveralls.io/github/lifeomic/facebook-test-users?branch=master)
+
 ## Usage
 
 Install the package as a dependency.
