@@ -6,7 +6,7 @@ const uuid = require('uuid/v4');
 
 const { URLSearchParams } = require('url');
 
-const GRAPH_API_BASE = '/v3.0';
+const GRAPH_API_BASE = '/v10.0';
 const GRAPH_API_HOST = 'https://graph.facebook.com';
 
 const createContext = () => {

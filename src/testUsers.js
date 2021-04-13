@@ -4,7 +4,7 @@ const get = require('lodash/get');
 const merge = require('lodash/merge');
 const zip = require('lodash/zip');
 
-const GRAPH_API_BASE = 'https://graph.facebook.com/v3.0';
+const GRAPH_API_BASE = 'https://graph.facebook.com/v10.0';
 
 class Application {
   static async getAccessToken ({ appId, appSecret }) {
