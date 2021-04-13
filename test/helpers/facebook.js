@@ -6,7 +6,7 @@ const uuid = require('uuid/v4');
 
 const { URLSearchParams } = require('url');
 
-const GRAPH_API_BASE = '/v3.0';
+const GRAPH_API_BASE = '/v10.0';
 const GRAPH_API_HOST = 'https://graph.facebook.com';
 
 const createContext = () => {
@@ -53,14 +53,14 @@ const provideTestUsers = ({ accessToken, appId, users }) => {
   nock(GRAPH_API_HOST)
     .persist()
     .matchHeader('authorization', `Bearer ${accessToken}`)
-    .get((uri) => uri.startsWith(`${GRAPH_API_BASE}/${appId}/accounts/test-users`))
+    .get((uri) => uri.startsWith(`${GRAPH_API_BASE}/${appId}/accounts`))
     .reply((uri) => {
       const query = parseQueryString(uri);
 
       const page = createPage({
         after: query.get('after'),
         items: users.map((user) => user.appView()),
-        url: `${GRAPH_API_HOST}${GRAPH_API_BASE}/${appId}/accounts/test-users`
+        url: `${GRAPH_API_HOST}${GRAPH_API_BASE}/${appId}/accounts`
       });
 
       return [ 200, page ];
@@ -69,7 +69,7 @@ const provideTestUsers = ({ accessToken, appId, users }) => {
   nock(GRAPH_API_HOST)
     .persist()
     .matchHeader('authorization', `Bearer ${accessToken}`)
-    .post((uri) => uri.startsWith(`${GRAPH_API_BASE}/${appId}/accounts/test-users`))
+    .post((uri) => uri.startsWith(`${GRAPH_API_BASE}/${appId}/accounts`))
     .reply((uri, body) => [ 200, users.createUser(body).publishView() ]);
 
   nock(GRAPH_API_HOST)
