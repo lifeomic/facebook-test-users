@@ -32,7 +32,7 @@ class Application {
       }
     });
 
-    this._testUsersUrl = `/${this._appId}/accounts/test-users`;
+    this._testUsersUrl = `/${this._appId}/accounts`;
   }
 
   async createTestUser (options = {}) {
