@@ -3,7 +3,6 @@ facebook-test-users
 
 > Utilities for working with Facebook test users, this package uses v10.0 of the Facebook graph-api. [link](https://developers.facebook.com/docs/graph-api/changelog/version10.0#graph-api)
 
-[![Build Status](https://travis-ci.org/lifeomic/facebook-test-users.svg?branch=master)](https://travis-ci.org/lifeomic/facebook-test-users)
 [![Coverage Status](https://coveralls.io/repos/github/lifeomic/facebook-test-users/badge.svg?branch=master)](https://coveralls.io/github/lifeomic/facebook-test-users?branch=master)
 [![Greenkeeper badge](https://badges.greenkeeper.io/lifeomic/facebook-test-users.svg)](https://greenkeeper.io/)
 
