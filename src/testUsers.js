@@ -61,8 +61,14 @@ class Application {
   }
 
   async listTestUsers (options = {}) {
-    const { includeFields } = options;
-    const users = await this._getAllPages(this._testUsersUrl);
+    const { includeFields, allPages = true } = options;
+    let users = [];
+    if (allPages === true) {
+      users = await this._getAllPages(this._testUsersUrl);
+    } else {
+      const response = await this._client.get(this._testUsersUrl);
+      users = response.data.data;
+    }
 
     if (includeFields) {
       const userFields = await Promise.all(users.map((user) => this.getTestUser({ id: user.id, includeFields })));

@@ -1,4 +1,5 @@
 const map = require('lodash/map');
+const first = require('lodash/first');
 const pick = require('lodash/pick');
 const test = require('ava');
 const testUsers = require('..');
@@ -19,12 +20,20 @@ test.serial('listing test users when none are available returns an empty list', 
   test.deepEqual(users, []);
 });
 
-test.serial('listing test users traverses all pages', async (test) => {
+test.serial('listing test users traverses all pages by default', async (test) => {
   const { client, facebook } = test.context;
   facebook.users.createUsers(5);
 
   const users = await client.listTestUsers();
   test.deepEqual(users, map(facebook.users, (user) => user.appView()));
+});
+
+test.serial('listing test users does not traverse all pages if allPages is false', async (test) => {
+  const { client, facebook } = test.context;
+  facebook.users.createUsers(5);
+
+  const users = await client.listTestUsers({ allPages: false });
+  test.deepEqual(users, [first(facebook.users).appView()]);
 });
 
 test.serial('listing test users can include additional fields', async (test) => {
